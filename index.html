@@ -51,11 +51,19 @@
       Dentro dela colocamos links para outras páginas do site.
       É diferente de uma lista comum porque tem função semântica de menu.
     -->
-    <a href="index.html">Início</a>
+    <a href="index.html">Cantina da Nonna</a>
     <!-- a cria um link. O href informa para onde o link leva. -->
-    <a href="cardapio.html">Cardápio</a>
-    <a href="reserva.html">Reserva</a>
-    <a href="cadastro-produtos.html">Cadastro de produtos</a>
+
+    <div>
+      <!--
+        Esta div agrupa apenas os links do menu.
+        Assim o CSS consegue deixar a marca de um lado e os links do outro.
+      -->
+      <a href="index.html">Início</a>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="reserva.html">Reserva</a>
+      <a href="cadastro-produtos.html">Cadastro de produtos</a>
+    </div>
   </nav>
 
   <h1>Cantina da Nonna</h1>
@@ -106,9 +114,6 @@
     <li>Pronto, chegou!</li>
   </ol>
 
-  <p>Veja o <a href="cardapio.html">cardápio completo</a>.</p>
-  <!-- Este parágrafo mistura texto comum com um link para outra página. -->
-
   <div class="endereco" style="background-color: #FDEBD3; text-align: center;">
     <!--
       div é uma caixa genérica usada para agrupar conteúdos.
@@ -125,26 +130,38 @@
   <footer>
     <!-- footer representa o rodapé da página. -->
 
-    <h2>Localização</h2>
+    <div>
+      <!--
+        Este é o contêiner flex do rodapé.
+        No CSS, contato e mapa ficarão lado a lado quando houver espaço.
+      -->
 
-    <!-- Para ajustar o tamanho do mapa, altere os valores de width e height. -->
-    <iframe
-      src="https://www.google.com/maps?q=Rua%20das%20Oliveiras%20120%20Ararangua%20SC&output=embed"
-      width="100%"
-      height="250"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-    <!--
-      iframe permite incorporar outra página dentro da nossa página.
-      Aqui usamos um mapa do Google Maps.
-      width="100%" faz o mapa ocupar toda a largura disponível.
-      height="250" define a altura do mapa.
-      loading="lazy" faz o mapa carregar apenas quando estiver perto de aparecer na tela.
-      style="border:0;" remove a borda padrão do iframe.
-    -->
+      <section>
+        <!-- section separa uma parte do conteúdo do rodapé. -->
+        <h2>Contato</h2>
+        <p>Rua das Oliveiras, 120</p>
+        <p>Centro — Araranguá/SC</p>
+        <p>Telefone: (48) 99999-9999</p>
+      </section>
+
+      <section>
+        <h2>Localização</h2>
+
+        <!-- Para ajustar o tamanho do mapa, altere os valores de width e height. -->
+        <iframe src="https://www.google.com/maps?q=Rua%20das%20Oliveiras%20120%20Ararangua%20SC&output=embed"
+          width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <!--
+          iframe permite incorporar outra página dentro da nossa página.
+          Aqui usamos um mapa do Google Maps.
+          width="100%" faz o mapa ocupar toda a largura disponível.
+          height="250" define a altura do mapa.
+          loading="lazy" faz o mapa carregar apenas quando estiver perto de aparecer na tela.
+          style="border:0;" remove a borda padrão do iframe.
+        -->
+      </section>
+    </div>
 
     <p>&copy; 2026 Cantina da Nonna.</p>
     <!-- &copy; mostra o símbolo de direitos autorais. -->

@@ -39,10 +39,15 @@
       Menu de navegação entre as páginas do site.
       A tag nav deixa claro que estes links fazem parte do menu principal.
     -->
-    <a href="index.html">Início</a>
-    <a href="cardapio.html">Cardápio</a>
-    <a href="reserva.html">Reserva</a>
-    <a href="cadastro-produtos.html">Cadastro de produtos</a>
+    <a href="index.html">Cantina da Nonna</a>
+
+    <div>
+      <!-- Grupo de links que será alinhado com display:flex e gap. -->
+      <a href="index.html">Início</a>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="reserva.html">Reserva</a>
+      <a href="cadastro-produtos.html">Cadastro de produtos</a>
+    </div>
   </nav>
 
   <h1>Cadastro de produtos</h1>
@@ -199,22 +204,35 @@
   <footer>
     <!-- Rodapé da página. -->
 
-    <h2>Localização</h2>
+    <div>
+      <!-- Contêiner flex usado para alinhar contato e mapa no rodapé. -->
 
-    <!-- Para ajustar o tamanho do mapa, altere os valores de width e height. -->
-    <iframe
-      src="https://www.google.com/maps?q=Rua%20das%20Oliveiras%20120%20Ararangua%20SC&output=embed"
-      width="100%"
-      height="250"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-    <!--
-      iframe incorpora o mapa do Google Maps no rodapé.
-      O tamanho pode ser ajustado mudando width e height acima.
-    -->
+      <section>
+        <h2>Contato</h2>
+        <p>Rua das Oliveiras, 120</p>
+        <p>Centro — Araranguá/SC</p>
+        <p>Telefone: (48) 99999-9999</p>
+      </section>
+
+      <section>
+        <h2>Localização</h2>
+
+        <!-- Para ajustar o tamanho do mapa, altere os valores de width e height. -->
+        <iframe
+          src="https://www.google.com/maps?q=Rua%20das%20Oliveiras%20120%20Ararangua%20SC&output=embed"
+          width="100%"
+          height="250"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <!--
+          iframe incorpora o mapa do Google Maps no rodapé.
+          O tamanho pode ser ajustado mudando width e height acima.
+        -->
+      </section>
+    </div>
 
     <p>&copy; 2026 Cantina da Nonna.</p>
   </footer>

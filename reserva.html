@@ -43,14 +43,19 @@
       nav indica uma área de navegação do site.
       Usamos esta tag quando os links servem para trocar de página ou seção.
     -->
-    <a href="index.html">Início</a>
+    <a href="index.html">Cantina da Nonna</a>
     <!--
       Cada tag a cria um link.
       O href indica o arquivo ou endereço para onde o usuário será levado.
     -->
-    <a href="cardapio.html">Cardápio</a>
-    <a href="reserva.html">Reserva</a>
-    <a href="cadastro-produtos.html">Cadastro de produtos</a>
+
+    <div>
+      <!-- Grupo de links que ficará alinhado com gap no CSS. -->
+      <a href="index.html">Início</a>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="reserva.html">Reserva</a>
+      <a href="cadastro-produtos.html">Cadastro de produtos</a>
+    </div>
   </nav>
 
   <h1>Reserva de mesa</h1>
@@ -219,24 +224,37 @@
   <footer>
     <!-- Rodapé da página. -->
 
-    <h2>Localização</h2>
+    <div>
+      <!-- Contêiner flex: contato e mapa são os itens organizados por ele. -->
 
-    <!-- Para ajustar o tamanho do mapa, altere os valores de width e height. -->
-    <iframe
-      src="https://www.google.com/maps?q=Rua%20das%20Oliveiras%20120%20Ararangua%20SC&output=embed"
-      width="100%"
-      height="250"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-    <!--
-      iframe incorpora uma página externa dentro desta página.
-      Neste caso, usamos o Google Maps no rodapé.
-      O src contém o endereço do mapa.
-      width e height controlam o tamanho visual do mapa na página.
-    -->
+      <section>
+        <h2>Contato</h2>
+        <p>Rua das Oliveiras, 120</p>
+        <p>Centro — Araranguá/SC</p>
+        <p>Telefone: (48) 99999-9999</p>
+      </section>
+
+      <section>
+        <h2>Localização</h2>
+
+        <!-- Para ajustar o tamanho do mapa, altere os valores de width e height. -->
+        <iframe
+          src="https://www.google.com/maps?q=Rua%20das%20Oliveiras%20120%20Ararangua%20SC&output=embed"
+          width="100%"
+          height="250"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <!--
+          iframe incorpora uma página externa dentro desta página.
+          Neste caso, usamos o Google Maps no rodapé.
+          O src contém o endereço do mapa.
+          width e height controlam o tamanho visual do mapa na página.
+        -->
+      </section>
+    </div>
 
     <p>&copy; 2026 Cantina da Nonna.</p>
   </footer>
