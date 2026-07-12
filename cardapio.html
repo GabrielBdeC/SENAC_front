@@ -1,14 +1,37 @@
 <!DOCTYPE html>
+<!--
+  Documento HTML5.
+  A primeira linha orienta o navegador a interpretar a página com o padrão atual.
+-->
 <html lang="pt-br">
+<!-- lang informa o idioma da página para navegadores, leitores de tela e buscadores. -->
 
 <head>
+  <!--
+    O head contém configurações da página.
+    Nada aqui é o conteúdo principal visto pelo usuário.
+  -->
+
   <meta charset="UTF-8">
+  <!-- UTF-8 permite acentos e caracteres especiais. -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    viewport ajuda a página a funcionar melhor em diferentes tamanhos de tela.
+    É uma configuração importante para visualização em celulares.
+  -->
+
   <title>Cantina da Nonna - Cardápio</title>
+  <!-- Texto exibido na aba do navegador. -->
 
   <link rel="stylesheet" href="public/style/index.css">
+  <!--
+    Importa o arquivo CSS externo do projeto.
+    Assim podemos reaproveitar os mesmos estilos em várias páginas.
+  -->
 
   <style>
+    /* CSS escrito dentro do HTML, usado aqui apenas como exemplo. */
     h1 {
       color: #8B3A3A;
       font-family: Georgia, serif;
@@ -18,34 +41,68 @@
 </head>
 
 <body>
+  <!-- Conteúdo visível da página. -->
+
+  <nav>
+    <!--
+      Menu de navegação com links para as páginas do site.
+      Cada link aponta para outro arquivo HTML do projeto.
+    -->
+    <a href="index.html">Início</a>
+    <a href="cardapio.html">Cardápio</a>
+    <a href="reserva.html">Reserva</a>
+    <a href="cadastro-produtos.html">Cadastro de produtos</a>
+  </nav>
+
   <h1>Cardápio</h1>
+  <!-- Título principal da página. -->
 
   <table>
+    <!--
+      table cria uma tabela.
+      Ela é útil para dados organizados em linhas e colunas, como produto e preço.
+    -->
+
     <tr>
+      <!-- tr cria uma linha da tabela. -->
       <th>Imagem</th>
+      <!--
+        th cria uma célula de cabeçalho.
+        Cabeçalhos explicam o conteúdo de cada coluna.
+      -->
       <th>Prato</th>
       <th>Preço</th>
     </tr>
+
     <tr>
+      <!-- Cada tr abaixo representa um item do cardápio. -->
       <td><img src="public/images/massa.jpg" alt="Fettuccine ao molho branco" width="150"></td>
+      <!--
+        td cria uma célula comum da tabela.
+        Aqui a primeira célula contém uma imagem em vez de texto.
+      -->
       <td>Fettuccine ao molho branco</td>
       <td>R$ 42,00</td>
     </tr>
+
     <tr>
       <td><img src="public/images/pizza.avif" alt="Pizza margherita" width="150"></td>
       <td>Pizza margherita</td>
       <td>R$ 55,00</td>
     </tr>
+
     <tr>
       <td><img src="public/images/polenta.jpg" alt="Polenta com fortaia" width="150"></td>
       <td>Polenta com fortaia</td>
       <td>R$ 35,00</td>
     </tr>
+
     <tr>
       <td><img src="public/images/salame.jpeg" alt="Salame e queijo colonial" width="150"></td>
       <td>Salame e queijo colonial</td>
       <td>R$ 38,00</td>
     </tr>
+
     <tr>
       <td><img src="public/images/vinho.webp" alt="Taça de vinho Goethe" width="150"></td>
       <td>Vinho Goethe (taça)</td>
@@ -54,6 +111,30 @@
   </table>
 
   <p style="font-size: 14px; text-align: left;">Voltar para o <a href="index.html">início</a>.</p>
+  <!-- Link simples para voltar à página inicial. -->
+
+  <footer>
+    <!-- Rodapé da página. -->
+
+    <h2>Localização</h2>
+
+    <!-- Para ajustar o tamanho do mapa, altere os valores de width e height. -->
+    <iframe
+      src="https://www.google.com/maps?q=Rua%20das%20Oliveiras%20120%20Ararangua%20SC&output=embed"
+      width="100%"
+      height="250"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    <!--
+      iframe incorpora o mapa do Google Maps dentro da página.
+      O endereço fica no atributo src e o tamanho pode ser ajustado em width e height.
+    -->
+
+    <p>&copy; 2026 Cantina da Nonna.</p>
+  </footer>
 </body>
 
 </html>

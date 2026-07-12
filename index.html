@@ -1,14 +1,40 @@
 <!DOCTYPE html>
+<!--
+  DOCTYPE informa ao navegador que este documento usa HTML5.
+  Isso ajuda o navegador a interpretar a página do jeito moderno.
+-->
 <html lang="pt-br">
+<!--
+  A tag html envolve todo o conteúdo da página.
+  O atributo lang="pt-br" informa que o idioma principal é português do Brasil.
+-->
 
 <head>
+  <!--
+    O head guarda informações sobre a página.
+    Essas informações não aparecem diretamente no corpo do site.
+  -->
+
   <meta charset="UTF-8">
+  <!-- charset="UTF-8" permite usar acentos, cedilha e outros caracteres corretamente. -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    viewport ajuda a página a se adaptar melhor em celulares e tablets.
+    Sem essa linha, o navegador móvel pode mostrar o site como se fosse uma tela grande reduzida.
+  -->
+
   <title>Cantina da Nonna</title>
+  <!-- title é o texto que aparece na aba do navegador. -->
 
   <link rel="stylesheet" href="public/style/index.css">
+  <!--
+    link conecta esta página HTML com um arquivo CSS externo.
+    rel="stylesheet" informa que o arquivo importado é uma folha de estilos.
+  -->
 
   <style>
+    /* style permite escrever CSS dentro do próprio HTML. */
     h1 {
       color: #8B3A3A;
       font-family: Georgia, serif;
@@ -17,43 +43,111 @@
 </head>
 
 <body>
+  <!-- body é a parte visível da página, onde ficam textos, imagens, links e seções. -->
+
+  <nav>
+    <!--
+      nav representa uma área de navegação.
+      Dentro dela colocamos links para outras páginas do site.
+      É diferente de uma lista comum porque tem função semântica de menu.
+    -->
+    <a href="index.html">Início</a>
+    <!-- a cria um link. O href informa para onde o link leva. -->
+    <a href="cardapio.html">Cardápio</a>
+    <a href="reserva.html">Reserva</a>
+    <a href="cadastro-produtos.html">Cadastro de produtos</a>
+  </nav>
+
   <h1>Cantina da Nonna</h1>
+  <!-- h1 é o título principal da página. Normalmente usamos apenas um h1 por página. -->
 
   <img src="public/images/logo.jpeg" alt="Logo da Cantina da Nonna" width="450">
+  <!--
+    img mostra uma imagem.
+    src indica o caminho do arquivo.
+    alt descreve a imagem para acessibilidade e para o caso de ela não carregar.
+    width define a largura da imagem.
+    Neste exemplo, a imagem vem de uma pasta local do projeto.
+  -->
 
   <p style="color: #8B3A3A; font-family: Georgia, serif;">Massas e pizzas artesanais, feitas na hora.</p>
+  <!-- p cria um parágrafo. Aqui também existe um exemplo de CSS inline usando style. -->
+  <!-- CSS inline funciona, mas em projetos maiores normalmente preferimos separar no arquivo .css. -->
+
   <hr>
+  <!-- hr cria uma linha horizontal para separar conteúdos. -->
 
   <h2>Sobre a casa</h2>
+  <!-- h2 é um subtítulo. Ele organiza seções abaixo do h1. -->
+
   <p>
     Trabalhamos com ingredientes <strong>frescos</strong> e receitas
     <em>italianas de família</em>. Aberto de terça a domingo.
   </p>
+  <!-- strong dá destaque de importância. em dá ênfase ao texto. -->
+  <!-- Visualmente os dois podem parecer apenas negrito/itálico, mas eles também têm significado semântico. -->
 
   <h2>Diferenciais</h2>
+
   <ul>
+    <!-- ul cria uma lista não ordenada, normalmente exibida com bolinhas. -->
     <li>Massas frescas feitas todos os dias</li>
+    <!-- li representa cada item da lista. -->
     <li>Forno a lenha para as pizzas</li>
     <li>Receitas de família</li>
   </ul>
 
   <h2>Como chegar</h2>
+
   <ol>
+    <!-- ol cria uma lista ordenada, normalmente exibida com números. -->
     <li>Siga pela Rua das Oliveiras</li>
     <li>Vire no número 120</li>
     <li>Pronto, chegou!</li>
   </ol>
 
   <p>Veja o <a href="cardapio.html">cardápio completo</a>.</p>
+  <!-- Este parágrafo mistura texto comum com um link para outra página. -->
+
   <div class="endereco" style="background-color: #FDEBD3; text-align: center;">
+    <!--
+      div é uma caixa genérica usada para agrupar conteúdos.
+      class permite identificar essa caixa para aplicar CSS.
+      Aqui ela agrupa o endereço para podermos estilizar esse bloco.
+    -->
     <p>
       Rua das Oliveiras, 120<br>
+      <!-- br quebra a linha dentro do mesmo parágrafo. -->
       Centro — Araranguá/SC
     </p>
   </div>
 
   <footer>
+    <!-- footer representa o rodapé da página. -->
+
+    <h2>Localização</h2>
+
+    <!-- Para ajustar o tamanho do mapa, altere os valores de width e height. -->
+    <iframe
+      src="https://www.google.com/maps?q=Rua%20das%20Oliveiras%20120%20Ararangua%20SC&output=embed"
+      width="100%"
+      height="250"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    <!--
+      iframe permite incorporar outra página dentro da nossa página.
+      Aqui usamos um mapa do Google Maps.
+      width="100%" faz o mapa ocupar toda a largura disponível.
+      height="250" define a altura do mapa.
+      loading="lazy" faz o mapa carregar apenas quando estiver perto de aparecer na tela.
+      style="border:0;" remove a borda padrão do iframe.
+    -->
+
     <p>&copy; 2026 Cantina da Nonna.</p>
+    <!-- &copy; mostra o símbolo de direitos autorais. -->
   </footer>
 </body>
 

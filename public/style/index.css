@@ -1,12 +1,18 @@
+/*
+  Estilos gerais aplicados ao corpo de todas as páginas.
+  Como todas importam este arquivo, estas regras se repetem no site inteiro.
+*/
 body {
   font-family: Arial, sans-serif;
   color: #3B2B20;
 }
 
+/* Faz a tabela ocupar toda a largura disponível no navegador. */
 table {
   width: 100%;
 }
 
+/* Estilo das células de cabeçalho da tabela, ou seja, as células th. */
 th {
   background-color: #8B3A3A;
   color: #FFF8E7;
@@ -17,12 +23,14 @@ th {
   padding: 8px;
 }
 
+/* Estilo das células comuns da tabela, ou seja, as células td. */
 td {
   text-align: center;
 
   padding: 8px;
 }
 
+/* Estilo do rodapé das páginas, deixando a área destacada no final. */
 footer {
   background-color: #8B3A3A;
   color: #FFF8E7;
@@ -34,10 +42,12 @@ footer {
   width: 100%;
 }
 
+/* Remove a margem padrão do parágrafo dentro do rodapé para o texto ficar mais alinhado. */
 footer p {
   margin: 0;
 }
 
+/* Faz a área de endereço ocupar toda a largura disponível. */
 .endereco {
   width: 100%;
 }

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--
+  Documento HTML5.
+  Esta linha informa ao navegador que vamos usar a versão atual do HTML.
+-->
+<html lang="pt-br">
+<!--
+  Define o idioma principal da página.
+  Isso ajuda acessibilidade, tradução automática e mecanismos de busca.
+-->
+
+<head>
+  <!--
+    Configurações da página.
+    O head guarda metadados, título e links para arquivos externos.
+  -->
+
+  <meta charset="UTF-8">
+  <!-- Permite acentos, cedilha e caracteres especiais em português. -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    Ajuda o layout a se adaptar ao tamanho da tela.
+    É especialmente importante para celulares.
+  -->
+
+  <title>Cantina da Nonna - Cadastro de produtos</title>
+  <!-- Título exibido na aba do navegador. -->
+
+  <link rel="stylesheet" href="public/style/index.css">
+  <!-- Importa o CSS externo do projeto. -->
+</head>
+
+<body>
+  <!-- Conteúdo visível da página. -->
+
+  <nav>
+    <!--
+      Menu de navegação entre as páginas do site.
+      A tag nav deixa claro que estes links fazem parte do menu principal.
+    -->
+    <a href="index.html">Início</a>
+    <a href="cardapio.html">Cardápio</a>
+    <a href="reserva.html">Reserva</a>
+    <a href="cadastro-produtos.html">Cadastro de produtos</a>
+  </nav>
+
+  <h1>Cadastro de produtos</h1>
+  <!-- Título principal da página. -->
+
+  <p>Formulário de exemplo para cadastrar produtos do cardápio.</p>
+  <!-- Texto curto explicando a função da tela. -->
+
+  <form>
+    <!--
+      form cria um formulário.
+      Ele está sem method e sem action porque os dados ainda não serão enviados para um backend.
+      Mesmo assim, os campos podem usar validações próprias do HTML.
+    -->
+
+    <fieldset>
+      <!--
+        fieldset agrupa campos relacionados.
+        Neste caso, os primeiros campos descrevem as informações principais do produto.
+      -->
+
+      <legend>Informações principais</legend>
+      <!-- legend dá nome ao grupo de campos e aparece na borda do fieldset. -->
+
+      <p>
+        <label for="nome-produto">Nome do produto:</label><br>
+        <input type="text" id="nome-produto" name="nome-produto" placeholder="Ex.: Lasanha bolonhesa" required minlength="3" maxlength="60">
+        <!--
+          Campo de texto obrigatório.
+          minlength define o mínimo de caracteres.
+          maxlength define o máximo de caracteres.
+          O navegador valida esses limites quando o formulário é enviado.
+        -->
+      </p>
+
+      <p>
+        <label for="codigo-produto">Código do produto:</label><br>
+        <input type="text" id="codigo-produto" name="codigo-produto" placeholder="Ex.: PRD-001" required maxlength="10">
+        <!--
+          Campo de texto para um código curto do produto.
+          O placeholder mostra um exemplo, mas não substitui o preenchimento real.
+        -->
+      </p>
+
+      <p>
+        <label for="categoria">Categoria:</label><br>
+        <select id="categoria" name="categoria" required>
+          <!--
+            select cria uma lista de opções.
+            É útil quando queremos limitar as respostas possíveis.
+          -->
+          <option value="">Selecione uma categoria</option>
+          <!--
+            Esta primeira option tem value vazio.
+            Como o select é required, ela força o aluno a escolher uma categoria real.
+          -->
+          <option value="massa">Massa</option>
+          <option value="pizza">Pizza</option>
+          <option value="entrada">Entrada</option>
+          <option value="bebida">Bebida</option>
+          <option value="sobremesa">Sobremesa</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="preco">Preço:</label><br>
+        <input type="number" id="preco" name="preco" placeholder="Ex.: 42.00" required min="1" step="0.01">
+        <!--
+          type="number" aceita apenas números.
+          min="1" impede valores menores que 1.
+          step="0.01" permite valores com centavos.
+          Por isso o campo aceita valores como 42.00 ou 42.50.
+        -->
+      </p>
+
+      <p>
+        <label for="imagem-produto">Imagem do produto:</label><br>
+        <input type="file" id="imagem-produto" name="imagem-produto" accept="image/*">
+        <!--
+          type="file" permite escolher um arquivo.
+          accept="image/*" sugere que sejam escolhidos apenas arquivos de imagem.
+          Sem backend, o arquivo não será salvo, mas o campo serve para aprender a estrutura.
+        -->
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <!--
+        Segundo grupo, com características do produto.
+        Aqui ficam opções que descrevem como o produto aparece no cardápio.
+      -->
+
+      <legend>Detalhes do produto</legend>
+
+      <p>Disponibilidade:</p>
+
+      <input type="radio" id="disponivel-sim" name="disponibilidade" value="sim" required>
+      <label for="disponivel-sim">Disponível</label><br>
+      <!--
+        Radio buttons com o mesmo name formam um grupo.
+        Nesse grupo, o usuário só pode escolher uma opção.
+        Disponível e indisponível são alternativas, por isso usamos radio.
+      -->
+
+      <input type="radio" id="disponivel-nao" name="disponibilidade" value="nao">
+      <label for="disponivel-nao">Indisponível</label>
+
+      <p>Opções do produto:</p>
+
+      <input type="checkbox" id="vegetariano" name="opcoes" value="vegetariano">
+      <label for="vegetariano">Vegetariano</label><br>
+      <!--
+        Checkboxes permitem marcar várias opções ao mesmo tempo.
+        Também é possível deixar todas desmarcadas.
+        Isso combina com características independentes, como vegetariano e promoção.
+      -->
+
+      <input type="checkbox" id="sem-gluten" name="opcoes" value="sem-gluten">
+      <label for="sem-gluten">Sem glúten</label><br>
+
+      <input type="checkbox" id="promocao" name="opcoes" value="promocao">
+      <label for="promocao">Produto em promoção</label>
+
+      <p>
+        <label for="descricao">Descrição:</label><br>
+        <textarea id="descricao" name="descricao" rows="5" cols="40" placeholder="Descreva os ingredientes e detalhes do produto" maxlength="300"></textarea>
+        <!--
+          textarea é usado para textos maiores.
+          maxlength limita a quantidade máxima de caracteres.
+          O navegador impede que o usuário passe do limite definido.
+        -->
+      </p>
+    </fieldset>
+
+    <p>
+      <input type="checkbox" id="conferencia" name="conferencia" required>
+      <label for="conferencia">Revisei as informações antes de cadastrar.</label>
+      <!--
+        Checkbox obrigatório para simular uma confirmação do usuário.
+        Ele demonstra que required também funciona em checkbox.
+      -->
+    </p>
+
+    <button type="submit">Cadastrar produto</button>
+    <!--
+      Botão de envio.
+      Como não há backend, ele serve principalmente para testar as validações do HTML.
+    -->
+
+    <button type="reset">Limpar formulário</button>
+    <!-- Botão para limpar todos os campos preenchidos pelo usuário. -->
+  </form>
+
+  <footer>
+    <!-- Rodapé da página. -->
+
+    <h2>Localização</h2>
+
+    <!-- Para ajustar o tamanho do mapa, altere os valores de width e height. -->
+    <iframe
+      src="https://www.google.com/maps?q=Rua%20das%20Oliveiras%20120%20Ararangua%20SC&output=embed"
+      width="100%"
+      height="250"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    <!--
+      iframe incorpora o mapa do Google Maps no rodapé.
+      O tamanho pode ser ajustado mudando width e height acima.
+    -->
+
+    <p>&copy; 2026 Cantina da Nonna.</p>
+  </footer>
+</body>
+
+</html>
