@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de position</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 24px;
+    }
+
+    section {
+      border: 1px solid #999999;
+      margin-bottom: 24px;
+      padding: 16px;
+    }
+
+    .caixa {
+      background-color: #FDEBD3;
+      border: 1px solid #8B3A3A;
+      padding: 16px;
+      width: 220px;
+    }
+
+    /*
+      static é o padrão.
+      Se não escrevermos position, o elemento já é static.
+      Ele fica no fluxo normal da página.
+    */
+    .static {
+      position: static;
+    }
+
+    /*
+      relative mantém o elemento no fluxo normal,
+      mas permite deslocar a caixa a partir da posição original.
+    */
+    .relative {
+      position: relative;
+      left: 40px;
+      top: 10px;
+    }
+
+    /*
+      O pai recebe position: relative para servir de referência.
+      Assim, o filho absolute se posiciona dentro desta caixa.
+    */
+    .pai {
+      border: 2px dashed #8B3A3A;
+      height: 160px;
+      position: relative;
+    }
+
+    /*
+      absolute tira o elemento do fluxo normal.
+      top e right posicionam a caixa em relação ao pai posicionado.
+    */
+    .absolute {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+    }
+
+    /*
+      sticky funciona como normal até chegar no topo.
+      Depois, fica preso na posição indicada por top.
+    */
+    .sticky {
+      background-color: #8B3A3A;
+      color: #FFFFFF;
+      position: sticky;
+      top: 0;
+    }
+
+    /*
+      fixed fica preso na tela.
+      Mesmo rolando a página, ele permanece no mesmo lugar da janela.
+    */
+    .fixed {
+      background-color: #8B3A3A;
+      bottom: 16px;
+      color: #FFFFFF;
+      position: fixed;
+      right: 16px;
+    }
+
+    .espaco {
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Exemplo simples de position</h1>
+
+  <section>
+    <h2>position: static</h2>
+    <div class="caixa static">Caixa static</div>
+  </section>
+
+  <section>
+    <h2>position: relative</h2>
+    <div class="caixa relative">Caixa relative</div>
+  </section>
+
+  <section>
+    <h2>position: absolute</h2>
+    <div class="pai">
+      <div class="caixa absolute">Caixa absolute</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>position: sticky</h2>
+    <div class="caixa sticky">Caixa sticky</div>
+    <p>Role a página para ver esta caixa prender no topo.</p>
+    <div class="espaco"></div>
+  </section>
+
+  <div class="caixa fixed">Caixa fixed</div>
+</body>
+
+</html>
