@@ -1,263 +1,148 @@
 <!DOCTYPE html>
-<!--
-  Documento HTML5.
-  Esta primeira linha avisa ao navegador para usar as regras atuais do HTML.
--->
 <html lang="pt-br">
-<!--
-  Define o idioma principal da página como português do Brasil.
-  Isso ajuda leitores de tela, tradutores automáticos e mecanismos de busca.
--->
 
 <head>
-  <!--
-    Configurações da página.
-    O conteúdo do head não aparece como texto principal no site.
-  -->
-
   <meta charset="UTF-8">
-  <!--
-    Permite usar acentos e caracteres especiais.
-    Sem isso, algumas palavras poderiam aparecer com símbolos estranhos.
-  -->
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--
-    Ajuda a página a se adaptar em telas menores.
-    width=device-width usa a largura real do aparelho.
-    initial-scale=1.0 começa a página sem zoom.
-  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- O Bootstrap precisa desta linha para que o layout responsivo funcione. -->
 
   <title>Cantina da Nonna - Reserva</title>
-  <!-- Título que aparece na aba do navegador. -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap: vinculamos o arquivo CSS antes do nosso para poder sobrescrever o que for necessário. -->
 
   <link rel="stylesheet" href="public/style/index.css">
-  <!-- Conecta esta página ao CSS externo do projeto. -->
 </head>
 
 <body>
-  <!-- Tudo que aparece para o usuário fica dentro do body. -->
 
   <nav>
-    <!--
-      nav indica uma área de navegação do site.
-      Usamos esta tag quando os links servem para trocar de página ou seção.
-    -->
-    <a href="index.html">Cantina da Nonna</a>
-    <!--
-      Cada tag a cria um link.
-      O href indica o arquivo ou endereço para onde o usuário será levado.
-    -->
-
-    <div>
-      <!-- Grupo de links que ficará alinhado com gap no CSS. -->
-      <a href="index.html">Início</a>
-      <a href="cardapio.html">Cardápio</a>
-      <a href="reserva.html">Reserva</a>
-      <a href="cadastro-produtos.html">Cadastro de produtos</a>
+    <div class="container d-flex justify-content-between">
+      <a href="index.html">Cantina da Nonna</a>
+      <div class="d-flex gap-3 align-items-center">
+        <a href="index.html">Início</a>
+        <a href="cardapio.html">Cardápio</a>
+        <a href="reserva.html">Reserva</a>
+        <a href="cadastro-produtos.html">Cadastro de produtos</a>
+      </div>
     </div>
   </nav>
 
-  <h1>Reserva de mesa</h1>
-  <!-- Título principal da tela de reserva. -->
-
-  <p>Preencha os dados abaixo para simular uma reserva na Cantina da Nonna.</p>
-  <!-- Parágrafo com uma breve orientação para o usuário. -->
-
-  <form>
+  <main class="container mt-4">
     <!--
-      form cria um formulário.
-      Nesta aula ele não usa method nem action, porque ainda não temos backend.
-      Mesmo sem backend, o navegador já consegue validar campos obrigatórios.
-    -->
+    container centraliza o conteúdo e define a largura máxima da página.
+    mt-4 é um utilitário Bootstrap que adiciona margin-top.
+  -->
 
-    <fieldset>
-      <!--
-        fieldset agrupa campos relacionados dentro do formulário.
-        Isso deixa o HTML mais organizado e ajuda na acessibilidade.
-      -->
+    <h1>Reserva de mesa</h1>
 
-      <legend>Dados do cliente</legend>
-      <!-- legend dá um título visível para o grupo criado pelo fieldset. -->
+    <p>Preencha os dados abaixo para simular uma reserva na Cantina da Nonna.</p>
 
-      <p>
-        <label for="nome">Nome completo:</label><br>
-        <!--
-          label é o texto explicativo do campo.
-          O for deve ter o mesmo valor do id do input correspondente.
-          Assim, ao clicar no texto "Nome completo", o cursor vai para o campo.
-        -->
-        <input type="text" id="nome" name="nome" placeholder="Ex.: Maria Silva" required minlength="3">
-        <!--
-          type="text" cria um campo de texto.
-          id identifica o campo na página.
-          name identifica o campo quando os dados forem enviados.
-          placeholder mostra um exemplo dentro do campo.
-          required torna o preenchimento obrigatório.
-          minlength exige uma quantidade mínima de caracteres.
-          Se o aluno tentar enviar vazio ou com menos de 3 letras, o navegador avisa.
-        -->
-      </p>
+    <form>
 
-      <p>
-        <label for="email">E-mail:</label><br>
-        <input type="email" id="email" name="email" placeholder="Ex.: maria@email.com" required>
-        <!--
-          type="email" pede que o valor digitado tenha formato de e-mail.
-          O navegador não confirma se o e-mail existe, apenas confere o formato básico.
-        -->
-      </p>
+      <fieldset>
+        <legend>Dados do cliente</legend>
 
-      <p>
-        <label for="telefone">Telefone:</label><br>
-        <input type="tel" id="telefone" name="telefone" placeholder="Ex.: (48) 99999-9999" required>
-        <!--
-          type="tel" indica que o campo é para telefone.
-          Em celulares, isso costuma abrir um teclado mais adequado para números.
-        -->
-      </p>
-    </fieldset>
+        <p>
+          <label for="nome">Nome completo:</label><br>
+          <input type="text" id="nome" name="nome" placeholder="Ex.: Maria Silva" required minlength="3">
+        </p>
 
-    <fieldset>
-      <!--
-        Segundo grupo do formulário, agora com os dados da reserva.
-        Separar por assunto facilita a leitura do código e da tela.
-      -->
+        <p>
+          <label for="email">E-mail:</label><br>
+          <input type="email" id="email" name="email" placeholder="Ex.: maria@email.com" required>
+        </p>
 
-      <legend>Dados da reserva</legend>
+        <p>
+          <label for="telefone">Telefone:</label><br>
+          <input type="tel" id="telefone" name="telefone" placeholder="Ex.: (48) 99999-9999" required>
+        </p>
+      </fieldset>
 
-      <p>
-        <label for="data">Data da reserva:</label><br>
-        <input type="date" id="data" name="data" required>
-        <!--
-          type="date" mostra um campo próprio para datas.
-          Dependendo do navegador, pode aparecer um pequeno calendário.
-        -->
-      </p>
+      <fieldset>
+        <legend>Dados da reserva</legend>
 
-      <p>
-        <label for="horario">Horário:</label><br>
-        <input type="time" id="horario" name="horario" required>
-        <!--
-          type="time" mostra um campo próprio para horários.
-          Isso evita que o usuário digite o horário em qualquer formato.
-        -->
-      </p>
+        <p>
+          <label for="data">Data da reserva:</label><br>
+          <input type="date" id="data" name="data" required>
+        </p>
+
+        <p>
+          <label for="horario">Horário:</label><br>
+          <input type="time" id="horario" name="horario" required>
+        </p>
+
+        <p>
+          <label for="pessoas">Quantidade de pessoas:</label><br>
+          <input type="number" id="pessoas" name="pessoas" placeholder="Ex.: 4" required min="1" max="20">
+        </p>
+
+        <p>Área desejada:</p>
+
+        <input type="radio" id="area-interna" name="area" value="interna" required>
+        <label for="area-interna">Área interna</label><br>
+
+        <input type="radio" id="area-externa" name="area" value="externa">
+        <label for="area-externa">Área externa</label><br>
+
+        <input type="radio" id="area-indiferente" name="area" value="indiferente">
+        <label for="area-indiferente">Tanto faz</label>
+
+        <p>Preferências:</p>
+
+        <input type="checkbox" id="cadeirao" name="preferencias" value="cadeirao">
+        <label for="cadeirao">Preciso de cadeirão infantil</label><br>
+
+        <input type="checkbox" id="aniversario" name="preferencias" value="aniversario">
+        <label for="aniversario">É uma comemoração de aniversário</label><br>
+
+        <input type="checkbox" id="acessibilidade" name="preferencias" value="acessibilidade">
+        <label for="acessibilidade">Preciso de acessibilidade</label>
+
+        <p>
+          <label for="observacoes">Observações:</label><br>
+          <textarea id="observacoes" name="observacoes" rows="4" cols="40"
+            placeholder="Ex.: Mesa perto da janela"></textarea>
+        </p>
+      </fieldset>
 
       <p>
-        <label for="pessoas">Quantidade de pessoas:</label><br>
-        <input type="number" id="pessoas" name="pessoas" placeholder="Ex.: 4" required min="1" max="20">
-        <!--
-          type="number" aceita números.
-          min define o menor valor permitido.
-          max define o maior valor permitido.
-          Aqui a reserva aceita de 1 a 20 pessoas.
-        -->
+        <input type="checkbox" id="confirmacao" name="confirmacao" required>
+        <label for="confirmacao">Confirmo que os dados da reserva estão corretos.</label>
       </p>
 
-      <p>Área desejada:</p>
-      <!-- Texto usado como pergunta para o grupo de radio buttons. -->
+      <button type="submit">Enviar reserva</button>
+      <button type="reset">Limpar formulário</button>
+    </form>
 
-      <input type="radio" id="area-interna" name="area" value="interna" required>
-      <label for="area-interna">Área interna</label><br>
-      <!--
-        radio button permite escolher apenas uma opção dentro do mesmo grupo.
-        Para formar um grupo, todos os radio buttons usam o mesmo name.
-        O value é o valor que representa a opção escolhida.
-        O required em uma opção obriga o usuário a selecionar alguma opção do grupo.
-      -->
-
-      <input type="radio" id="area-externa" name="area" value="externa">
-      <label for="area-externa">Área externa</label><br>
-
-      <input type="radio" id="area-indiferente" name="area" value="indiferente">
-      <label for="area-indiferente">Tanto faz</label>
-
-      <p>Preferências:</p>
-      <!-- Texto usado como pergunta para as caixas de seleção. -->
-
-      <input type="checkbox" id="cadeirao" name="preferencias" value="cadeirao">
-      <label for="cadeirao">Preciso de cadeirão infantil</label><br>
-      <!--
-        checkbox permite marcar zero, uma ou várias opções.
-        Diferente do radio, mais de uma checkbox pode ficar marcada.
-        Aqui todas usam o mesmo name porque pertencem ao mesmo assunto: preferências.
-      -->
-
-      <input type="checkbox" id="aniversario" name="preferencias" value="aniversario">
-      <label for="aniversario">É uma comemoração de aniversário</label><br>
-
-      <input type="checkbox" id="acessibilidade" name="preferencias" value="acessibilidade">
-      <label for="acessibilidade">Preciso de acessibilidade</label>
-
-      <p>
-        <label for="observacoes">Observações:</label><br>
-        <textarea id="observacoes" name="observacoes" rows="4" cols="40" placeholder="Ex.: Mesa perto da janela"></textarea>
-        <!--
-          textarea cria um campo de texto maior, ideal para observações.
-          rows define a quantidade de linhas visíveis.
-          cols define uma largura inicial em caracteres.
-          O texto digitado aqui pode ter várias linhas.
-        -->
-      </p>
-    </fieldset>
-
-    <p>
-      <input type="checkbox" id="confirmacao" name="confirmacao" required>
-      <label for="confirmacao">Confirmo que os dados da reserva estão corretos.</label>
-      <!--
-        Checkbox obrigatório para simular uma confirmação antes do envio.
-        Se ele não estiver marcado, o navegador bloqueia o envio do formulário.
-      -->
-    </p>
-
-    <button type="submit">Enviar reserva</button>
-    <!--
-      type="submit" tenta enviar o formulário.
-      Antes disso, o navegador verifica campos required, min, max e outros atributos.
-    -->
-
-    <button type="reset">Limpar formulário</button>
-    <!-- type="reset" limpa os campos e volta o formulário ao estado inicial. -->
-  </form>
+  </main>
 
   <footer>
-    <!-- Rodapé da página. -->
 
-    <div>
-      <!-- Contêiner flex: contato e mapa são os itens organizados por ele. -->
+    <div class="container d-flex gap-4">
 
-      <section>
+      <section class="flex-fill">
         <h2>Contato</h2>
         <p>Rua das Oliveiras, 120</p>
         <p>Centro — Araranguá/SC</p>
         <p>Telefone: (48) 99999-9999</p>
       </section>
 
-      <section>
+      <section class="flex-fill">
         <h2>Localização</h2>
 
-        <!-- Para ajustar o tamanho do mapa, altere os valores de width e height. -->
-        <iframe
-          src="https://www.google.com/maps?q=Rua%20das%20Oliveiras%20120%20Ararangua%20SC&output=embed"
-          width="100%"
-          height="250"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
+        <iframe src="https://www.google.com/maps?q=Rua%20das%20Oliveiras%20120%20Ararangua%20SC&output=embed"
+          width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
-        <!--
-          iframe incorpora uma página externa dentro desta página.
-          Neste caso, usamos o Google Maps no rodapé.
-          O src contém o endereço do mapa.
-          width e height controlam o tamanho visual do mapa na página.
-        -->
       </section>
+
     </div>
 
-    <p>&copy; 2026 Cantina da Nonna.</p>
+    <p class="text-center">&copy; 2026 Cantina da Nonna.</p>
   </footer>
+
 </body>
 
 </html>

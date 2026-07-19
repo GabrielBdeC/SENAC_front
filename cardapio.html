@@ -1,145 +1,154 @@
 <!DOCTYPE html>
-<!--
-  Documento HTML5.
-  A primeira linha orienta o navegador a interpretar a página com o padrão atual.
--->
 <html lang="pt-br">
-<!-- lang informa o idioma da página para navegadores, leitores de tela e buscadores. -->
 
 <head>
-  <!--
-    O head contém configurações da página.
-    Nada aqui é o conteúdo principal visto pelo usuário.
-  -->
-
   <meta charset="UTF-8">
-  <!-- UTF-8 permite acentos e caracteres especiais. -->
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--
-    viewport ajuda a página a funcionar melhor em diferentes tamanhos de tela.
-    É uma configuração importante para visualização em celulares.
-  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- O Bootstrap precisa desta linha para que o layout responsivo funcione. -->
 
   <title>Cantina da Nonna - Cardápio</title>
-  <!-- Texto exibido na aba do navegador. -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap: vinculamos o arquivo CSS antes do nosso para poder sobrescrever o que for necessário. -->
 
   <link rel="stylesheet" href="public/style/index.css">
-  <!--
-    Importa o arquivo CSS externo do projeto.
-    Assim podemos reaproveitar os mesmos estilos em várias páginas.
-  -->
-
-  <style>
-    /* CSS escrito dentro do HTML, usado aqui apenas como exemplo. */
-    h1 {
-      color: #8B3A3A;
-      font-family: Georgia, serif;
-      text-align: center;
-    }
-  </style>
 </head>
 
 <body>
-  <!-- Conteúdo visível da página. -->
 
   <nav>
-    <!--
-      Menu de navegação com links para as páginas do site.
-      Cada link aponta para outro arquivo HTML do projeto.
-    -->
-    <a href="index.html">Cantina da Nonna</a>
-
-    <div>
-      <!-- Grupo de links que ficará alinhado no canto direito do menu. -->
-      <a href="index.html">Início</a>
-      <a href="cardapio.html">Cardápio</a>
-      <a href="reserva.html">Reserva</a>
-      <a href="cadastro-produtos.html">Cadastro de produtos</a>
+    <div class="container d-flex justify-content-between">
+      <a href="index.html">Cantina da Nonna</a>
+      <div class="d-flex gap-3 align-items-center">
+        <a href="index.html">Início</a>
+        <a href="cardapio.html">Cardápio</a>
+        <a href="reserva.html">Reserva</a>
+        <a href="cadastro-produtos.html">Cadastro de produtos</a>
+      </div>
     </div>
   </nav>
 
-  <h1>Cardápio</h1>
-  <!-- Título principal da página. -->
-
-  <table>
+  <main class="container mt-4">
     <!--
-      table cria uma tabela.
-      Neste projeto, o cardápio continua sendo apresentado como tabela,
-      porque temos dados bem organizados em colunas: imagem, prato e preço.
+    container centraliza o conteúdo e define a largura máxima da página.
+    mt-4 é um utilitário Bootstrap que adiciona margin-top.
+  -->
+
+    <h1>Cardápio</h1>
+
+    <div class="row">
+      <!--
+      row cria uma linha da grade do Bootstrap.
+      A grade divide cada linha em 12 colunas.
+      Os col-* definidos dentro do row se encaixam nessas colunas.
     -->
 
-    <tr>
-      <!-- tr cria uma linha da tabela. -->
-      <th>Imagem</th>
-      <!-- th cria uma célula de cabeçalho, usada para nomear as colunas. -->
-      <th>Prato</th>
-      <th>Preço</th>
-    </tr>
+      <div class="col-md-6 mb-4">
+        <!--
+        col-md-6 ocupa 6 das 12 colunas em telas médias (≥768px).
+        Assim, cabem 2 itens por linha no tablet e no computador.
+        Em telas menores, cada col-md-6 ocupa as 12 colunas (coluna inteira).
+        mb-4 adiciona margin-bottom para separar as linhas.
+      -->
+        <div class="border rounded p-3 h-100 d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start gap-3">
+            <div>
+              <h5>Fettuccine ao molho branco</h5>
+              <p class="text-muted small">Massa fresca ao molho de creme de leite com parmesão ralado na hora e toque de
+                noz-moscada.</p>
+            </div>
+            <img src="public/images/massa.jpg" alt="Fettuccine ao molho branco" class="cardapio-img rounded">
+            <!-- cardapio-img define tamanho fixo e object-fit para manter proporção uniforme. -->
+          </div>
+          <p class="mt-auto mb-0 pt-3">R$ 42,00</p>
+        </div>
+      </div>
 
-    <tr>
-      <!-- Cada tr abaixo representa um item do cardápio. -->
-      <td><img src="public/images/massa.jpg" alt="Fettuccine ao molho branco" width="150"></td>
-      <!-- td cria uma célula comum da tabela. -->
-      <td>Fettuccine ao molho branco</td>
-      <td>R$ 42,00</td>
-    </tr>
+      <div class="col-md-6 mb-4">
+        <div class="border rounded p-3 h-100 d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start gap-3">
+            <div>
+              <h5>Pizza margherita</h5>
+              <p class="text-muted small">Pizza no forno a lenha com molho de tomate artesanal, mussarela fresca e
+                folhas de manjericão.</p>
+            </div>
+            <img src="public/images/pizza.avif" alt="Pizza margherita" class="cardapio-img rounded">
+          </div>
+          <p class="mt-auto mb-0 pt-3">R$ 55,00</p>
+        </div>
+      </div>
 
-    <tr>
-      <td><img src="public/images/pizza.avif" alt="Pizza margherita" width="150"></td>
-      <td>Pizza margherita</td>
-      <td>R$ 55,00</td>
-    </tr>
+      <div class="col-md-6 mb-4">
+        <div class="border rounded p-3 h-100 d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start gap-3">
+            <div>
+              <h5>Polenta com fortaia</h5>
+              <p class="text-muted small">Polenta cremosa servida com fortaia — omelete de ovos caipiras — prato típico
+                da cozinha ítalo-gauchesca.</p>
+            </div>
+            <img src="public/images/polenta.jpg" alt="Polenta com fortaia" class="cardapio-img rounded">
+          </div>
+          <p class="mt-auto mb-0 pt-3">R$ 35,00</p>
+        </div>
+      </div>
 
-    <tr>
-      <td><img src="public/images/polenta.jpg" alt="Polenta com fortaia" width="150"></td>
-      <td>Polenta com fortaia</td>
-      <td>R$ 35,00</td>
-    </tr>
+      <div class="col-md-6 mb-4">
+        <div class="border rounded p-3 h-100 d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start gap-3">
+            <div>
+              <h5>Salame e queijo colonial</h5>
+              <p class="text-muted small">Salame artesanal fatiado acompanhado de queijo colonial da região, servido com
+                pão caseiro.</p>
+            </div>
+            <img src="public/images/salame.jpeg" alt="Salame e queijo colonial" class="cardapio-img rounded">
+          </div>
+          <p class="mt-auto mb-0 pt-3">R$ 38,00</p>
+        </div>
+      </div>
 
-    <tr>
-      <td><img src="public/images/salame.jpeg" alt="Salame e queijo colonial" width="150"></td>
-      <td>Salame e queijo colonial</td>
-      <td>R$ 38,00</td>
-    </tr>
+      <div class="col-md-6 mb-4">
+        <div class="border rounded p-3 h-100 d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start gap-3">
+            <div>
+              <h5>Vinho Goethe (taça)</h5>
+              <p class="text-muted small">Vinho branco da uva Goethe, cultivada em Urussanga/SC. Aroma floral, sabor
+                suave e levemente ácido.</p>
+            </div>
+            <img src="public/images/vinho.webp" alt="Taça de vinho Goethe" class="cardapio-img rounded">
+          </div>
+          <p class="mt-auto mb-0 pt-3">R$ 25,00</p>
+        </div>
+      </div>
 
-    <tr>
-      <td><img src="public/images/vinho.webp" alt="Taça de vinho Goethe" width="150"></td>
-      <td>Vinho Goethe (taça)</td>
-      <td>R$ 25,00</td>
-    </tr>
-  </table>
+    </div>
+  </main>
 
   <footer>
-    <!-- Rodapé da página. -->
 
-    <div>
-      <!-- Contêiner flex usado para alinhar contato e mapa. -->
+    <div class="container d-flex gap-4">
 
-      <section>
+      <section class="flex-fill">
         <h2>Contato</h2>
         <p>Rua das Oliveiras, 120</p>
         <p>Centro — Araranguá/SC</p>
         <p>Telefone: (48) 99999-9999</p>
       </section>
 
-      <section>
+      <section class="flex-fill">
         <h2>Localização</h2>
 
-        <!-- Para ajustar o tamanho do mapa, altere os valores de width e height. -->
         <iframe src="https://www.google.com/maps?q=Rua%20das%20Oliveiras%20120%20Ararangua%20SC&output=embed"
           width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
-        <!--
-          iframe incorpora o mapa do Google Maps dentro da página.
-          O endereço fica no atributo src e o tamanho pode ser ajustado em width e height.
-        -->
       </section>
+
     </div>
 
-    <p>&copy; 2026 Cantina da Nonna.</p>
+    <p class="text-center">&copy; 2026 Cantina da Nonna.</p>
   </footer>
+
 </body>
 
 </html>

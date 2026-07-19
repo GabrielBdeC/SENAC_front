@@ -1,7 +1,3 @@
-/*
-  Estilos gerais do site.
-  Aqui deixamos apenas o básico para a página não ficar sem identidade visual.
-*/
 body {
   font-family: Arial, sans-serif;
   color: #3B2B20;
@@ -10,32 +6,11 @@ body {
 }
 
 /*
-  Esta regra centraliza os principais conteúdos da página.
-  max-width limita a largura em telas grandes.
-  margin-left/right auto distribui o espaço sobrando dos lados.
-
-  O sinal > significa "filho direto".
-  Exemplo: body > h1 pega apenas um h1 que está diretamente dentro do body.
-  Já body h1 pegaria qualquer h1 dentro do body, mesmo se ele estivesse dentro
-  de uma section, div, footer ou outro elemento.
-
-  Usamos body > ... para mexer só nos blocos principais da página,
-  sem alterar elementos internos do menu, formulário ou rodapé sem querer.
+  O .container do Bootstrap centraliza o conteúdo e define largura máxima.
+  As regras manuais de max-width e margin auto não são mais necessárias no CSS manual.
 */
-body>h1,
-body>h2,
-body>p,
-body>ul,
-body>ol,
-body>hr,
-body>form,
-body>.endereco,
-body>table {
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+h1 {
+  color: #8B3A3A;
 }
 
 h1,
@@ -43,41 +18,18 @@ h2 {
   font-family: Georgia, serif;
 }
 
-/*
-  Centraliza a imagem principal.
-  display: block permite usar margin auto na imagem.
-*/
-body>img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
-}
-
-/*
-  AULA 5: FLEXBOX NA NAVBAR
-  nav é o contêiner flex.
-  O primeiro link e a div com os outros links são os itens flex.
-*/
 nav {
   background-color: #8B3A3A;
   color: #FFF8E7;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 16px 24px;
+  padding: 16px 0;
 }
 
-/*
-  O primeiro link da nav é usado como a marca do site.
-*/
-nav>a {
+/* O container dentro da nav define a largura máxima e centraliza o conteúdo. */
+nav>div {
+  gap: 16px;
+}
+
+nav>div>a {
   font-family: Georgia, serif;
   font-size: 24px;
   font-weight: bold;
@@ -88,37 +40,6 @@ nav a {
   text-decoration: none;
 }
 
-/*
-  A div dentro da nav também vira flex.
-  Assim os links ficam lado a lado com espaço entre eles.
-*/
-nav div {
-  display: flex;
-  gap: 16px;
-}
-
-/* A tabela continua simples, como na aula anterior. */
-table {
-  width: 100%;
-}
-
-th {
-  background-color: #8B3A3A;
-  color: #FFF8E7;
-  font-family: Georgia, serif;
-  padding: 8px;
-  text-align: center;
-}
-
-td {
-  padding: 8px;
-  text-align: center;
-}
-
-/*
-  A div dentro do footer é o contêiner flex.
-  As duas sections são os itens flex: contato e mapa.
-*/
 footer {
   background-color: #8B3A3A;
   color: #FFF8E7;
@@ -127,33 +48,13 @@ footer {
   padding: 24px 0 16px;
 }
 
-footer>div {
-  display: flex;
-  gap: 24px;
-
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-/*
-  flex: 1 faz cada section tentar ocupar o mesmo espaço.
-*/
-footer section {
-  flex: 1;
+.cardapio-img {
+  width: 130px;
+  height: 110px;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 footer iframe {
-  width: 100%;
-}
-
-footer>p {
-  text-align: center;
-}
-
-/* Mantém o bloco de endereço ocupando a largura disponível. */
-.endereco {
   width: 100%;
 }
