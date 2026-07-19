@@ -20,24 +20,23 @@ h2 {
 
 nav {
   background-color: #8B3A3A;
-  color: #FFF8E7;
-  padding: 16px 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
-/* O container dentro da nav define a largura máxima e centraliza o conteúdo. */
-nav>div {
-  gap: 16px;
+/*
+  Sobrescrevemos as cores padrão do Bootstrap navbar para a identidade visual da cantina.
+  data-bs-theme="dark" no HTML já configura os ícones, mas o texto precisa de ajuste manual.
+*/
+.navbar-brand,
+.nav-link {
+  color: #FFF8E7 !important;
 }
 
-nav>div>a {
+.navbar-brand {
   font-family: Georgia, serif;
   font-size: 24px;
   font-weight: bold;
-}
-
-nav a {
-  color: #FFF8E7;
-  text-decoration: none;
 }
 
 footer {

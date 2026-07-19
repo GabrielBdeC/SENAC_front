@@ -9,27 +9,43 @@
 
   <title>Cantina da Nonna - Cadastro de produtos</title>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
   <!-- Bootstrap: vinculamos o arquivo CSS antes do nosso para poder sobrescrever o que for necessário. -->
 
   <link rel="stylesheet" href="public/style/index.css">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-  <nav>
-    <div class="container d-flex justify-content-between">
-      <a href="index.html">Cantina da Nonna</a>
-      <div class="d-flex gap-3 align-items-center">
-        <a href="index.html">Início</a>
-        <a href="cardapio.html">Cardápio</a>
-        <a href="reserva.html">Reserva</a>
-        <a href="cadastro-produtos.html">Cadastro de produtos</a>
+  <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+    <!--
+      navbar: componente de navegação do Bootstrap.
+      navbar-expand-lg: o menu fica expandido em telas ≥992px.
+      Em telas menores, o menu é recolhido e aparece o botão hambúrger.
+      data-bs-theme="dark": adapta os ícones e comportamento para fundo escuro.
+    -->
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Cantina da Nonna</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal"
+        aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu-principal">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="cardapio.html">Cardápio</a></li>
+          <li class="nav-item"><a class="nav-link" href="reserva.html">Reserva</a></li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="cadastro-produtos.html">Cadastro de produtos</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
 
-  <main class="container mt-4">
+  <main class="container mt-4 flex-grow-1">
     <!--
     container centraliza o conteúdo e define a largura máxima da página.
     mt-4 é um utilitário Bootstrap que adiciona margin-top.
@@ -40,25 +56,31 @@
     <p>Formulário de exemplo para cadastrar produtos do cardápio.</p>
 
     <form>
+      <!--
+        form-label: estiliza o rótulo do campo.
+        form-control: aplica borda, padding e foco visual ao input.
+        form-select: estiliza o campo de seleção.
+        mb-3: espaçamento entre os campos.
+      -->
 
-      <fieldset>
-        <legend>Informações principais</legend>
+      <fieldset class="mb-4">
+        <legend class="mb-3">Informações principais</legend>
 
-        <p>
-          <label for="nome-produto">Nome do produto:</label><br>
-          <input type="text" id="nome-produto" name="nome-produto" placeholder="Ex.: Lasanha bolonhesa" required
-            minlength="3" maxlength="60">
-        </p>
+        <div class="mb-3">
+          <label for="nome-produto" class="form-label">Nome do produto:</label>
+          <input type="text" id="nome-produto" name="nome-produto" class="form-control"
+            placeholder="Ex.: Lasanha bolonhesa" required minlength="3" maxlength="60">
+        </div>
 
-        <p>
-          <label for="codigo-produto">Código do produto:</label><br>
-          <input type="text" id="codigo-produto" name="codigo-produto" placeholder="Ex.: PRD-001" required
-            maxlength="10">
-        </p>
+        <div class="mb-3">
+          <label for="codigo-produto" class="form-label">Código do produto:</label>
+          <input type="text" id="codigo-produto" name="codigo-produto" class="form-control" placeholder="Ex.: PRD-001"
+            required maxlength="10">
+        </div>
 
-        <p>
-          <label for="categoria">Categoria:</label><br>
-          <select id="categoria" name="categoria" required>
+        <div class="mb-3">
+          <label for="categoria" class="form-label">Categoria:</label>
+          <select id="categoria" name="categoria" class="form-select" required>
             <option value="">Selecione uma categoria</option>
             <option value="massa">Massa</option>
             <option value="pizza">Pizza</option>
@@ -66,55 +88,68 @@
             <option value="bebida">Bebida</option>
             <option value="sobremesa">Sobremesa</option>
           </select>
-        </p>
+          <!-- form-select: estiliza o campo de seleção com a aparência padrão do Bootstrap. -->
+        </div>
 
-        <p>
-          <label for="preco">Preço:</label><br>
-          <input type="number" id="preco" name="preco" placeholder="Ex.: 42.00" required min="1" step="0.01">
-        </p>
+        <div class="mb-3">
+          <label for="preco" class="form-label">Preço:</label>
+          <input type="number" id="preco" name="preco" class="form-control" placeholder="Ex.: 42.00" required min="1"
+            step="0.01">
+        </div>
 
-        <p>
-          <label for="imagem-produto">Imagem do produto:</label><br>
-          <input type="file" id="imagem-produto" name="imagem-produto" accept="image/*">
-        </p>
+        <div class="mb-3">
+          <label for="imagem-produto" class="form-label">Imagem do produto:</label>
+          <input type="file" id="imagem-produto" name="imagem-produto" class="form-control" accept="image/*">
+        </div>
       </fieldset>
 
-      <fieldset>
-        <legend>Detalhes do produto</legend>
+      <fieldset class="mb-4">
+        <legend class="mb-3">Detalhes do produto</legend>
 
-        <p>Disponibilidade:</p>
+        <p class="mb-1">Disponibilidade:</p>
+        <!--
+          form-check: agrupa input e label de radio/checkbox.
+          form-check-input: estiliza o controle.
+          form-check-label: estiliza o texto do controle.
+        -->
+        <div class="form-check">
+          <input type="radio" id="disponivel-sim" name="disponibilidade" value="sim" class="form-check-input" required>
+          <label for="disponivel-sim" class="form-check-label">Disponível</label>
+        </div>
+        <div class="form-check mb-3">
+          <input type="radio" id="disponivel-nao" name="disponibilidade" value="nao" class="form-check-input">
+          <label for="disponivel-nao" class="form-check-label">Indisponível</label>
+        </div>
 
-        <input type="radio" id="disponivel-sim" name="disponibilidade" value="sim" required>
-        <label for="disponivel-sim">Disponível</label><br>
+        <p class="mb-1">Opções do produto:</p>
+        <div class="form-check">
+          <input type="checkbox" id="vegetariano" name="opcoes" value="vegetariano" class="form-check-input">
+          <label for="vegetariano" class="form-check-label">Vegetariano</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="sem-gluten" name="opcoes" value="sem-gluten" class="form-check-input">
+          <label for="sem-gluten" class="form-check-label">Sem glúten</label>
+        </div>
+        <div class="form-check mb-3">
+          <input type="checkbox" id="promocao" name="opcoes" value="promocao" class="form-check-input">
+          <label for="promocao" class="form-check-label">Produto em promoção</label>
+        </div>
 
-        <input type="radio" id="disponivel-nao" name="disponibilidade" value="nao">
-        <label for="disponivel-nao">Indisponível</label>
-
-        <p>Opções do produto:</p>
-
-        <input type="checkbox" id="vegetariano" name="opcoes" value="vegetariano">
-        <label for="vegetariano">Vegetariano</label><br>
-
-        <input type="checkbox" id="sem-gluten" name="opcoes" value="sem-gluten">
-        <label for="sem-gluten">Sem glúten</label><br>
-
-        <input type="checkbox" id="promocao" name="opcoes" value="promocao">
-        <label for="promocao">Produto em promoção</label>
-
-        <p>
-          <label for="descricao">Descrição:</label><br>
-          <textarea id="descricao" name="descricao" rows="5" cols="40"
+        <div class="mb-3">
+          <label for="descricao" class="form-label">Descrição:</label>
+          <textarea id="descricao" name="descricao" class="form-control" rows="5"
             placeholder="Descreva os ingredientes e detalhes do produto" maxlength="300"></textarea>
-        </p>
+        </div>
       </fieldset>
 
-      <p>
-        <input type="checkbox" id="conferencia" name="conferencia" required>
-        <label for="conferencia">Revisei as informações antes de cadastrar.</label>
-      </p>
+      <div class="form-check mb-3">
+        <input type="checkbox" id="conferencia" name="conferencia" class="form-check-input" required>
+        <label for="conferencia" class="form-check-label">Revisei as informações antes de cadastrar.</label>
+      </div>
 
-      <button type="submit">Cadastrar produto</button>
-      <button type="reset">Limpar formulário</button>
+      <button type="submit" class="btn btn-primary">Cadastrar produto</button>
+      <!-- btn btn-primary: botão principal estilizado pelo Bootstrap. -->
+      <button type="reset" class="btn btn-secondary ms-2">Limpar formulário</button>
     </form>
 
   </main>
@@ -144,6 +179,8 @@
     <p class="text-center">&copy; 2026 Cantina da Nonna.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- O bundle do Bootstrap inclui o JavaScript necessário para os componentes interativos, como o navbar responsivo. -->
 </body>
 
 </html>
