@@ -5,25 +5,16 @@
   <meta charset="UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- O Bootstrap precisa desta linha para que o layout responsivo funcione. -->
 
   <title>Cantina da Nonna - Cardápio</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-  <!-- Bootstrap: vinculamos o arquivo CSS antes do nosso para poder sobrescrever o que for necessário. -->
-
   <link rel="stylesheet" href="public/style/index.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 
   <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
-    <!--
-      navbar: componente de navegação do Bootstrap.
-      navbar-expand-lg: o menu fica expandido em telas ≥992px.
-      Em telas menores, o menu é recolhido e aparece o botão hambúrger.
-      data-bs-theme="dark": adapta os ícones e comportamento para fundo escuro.
-    -->
     <div class="container">
       <a class="navbar-brand" href="index.html">Cantina da Nonna</a>
 
@@ -46,27 +37,19 @@
   </nav>
 
   <main class="container mt-4 flex-grow-1">
-    <!--
-    container centraliza o conteúdo e define a largura máxima da página.
-    mt-4 é um utilitário Bootstrap que adiciona margin-top.
-  -->
 
     <h1>Cardápio</h1>
 
-    <div class="row">
-      <!--
-      row cria uma linha da grade do Bootstrap.
-      A grade divide cada linha em 12 colunas.
-      Os col-* definidos dentro do row se encaixam nessas colunas.
-    -->
+    <div class="d-flex gap-2 mb-4 flex-wrap" id="filtros">
+      <button class="btn btn-outline-secondary btn-sm" data-filtro="todos">Todos</button>
+      <button class="btn btn-outline-secondary btn-sm" data-filtro="massa">Massas</button>
+      <button class="btn btn-outline-secondary btn-sm" data-filtro="pizza">Pizzas</button>
+      <button class="btn btn-outline-secondary btn-sm" data-filtro="entrada">Entradas</button>
+      <button class="btn btn-outline-secondary btn-sm" data-filtro="bebida">Bebidas</button>
+    </div>
 
-      <div class="col-md-6 mb-4">
-        <!--
-        col-md-6 ocupa 6 das 12 colunas em telas médias (≥768px).
-        Assim, cabem 2 itens por linha no tablet e no computador.
-        Em telas menores, cada col-md-6 ocupa as 12 colunas (coluna inteira).
-        mb-4 adiciona margin-bottom para separar as linhas.
-      -->
+    <div class="row" id="lista-pratos">
+      <div class="col-md-6 mb-4 prato" data-categoria="massa">
         <div class="border rounded p-3 h-100 d-flex flex-column">
           <div class="d-flex justify-content-between align-items-start gap-3">
             <div>
@@ -75,13 +58,12 @@
                 noz-moscada.</p>
             </div>
             <img src="public/images/massa.jpg" alt="Fettuccine ao molho branco" class="cardapio-img rounded">
-            <!-- cardapio-img define tamanho fixo e object-fit para manter proporção uniforme. -->
           </div>
           <p class="mt-auto mb-0 pt-3">R$ 42,00</p>
         </div>
       </div>
 
-      <div class="col-md-6 mb-4">
+      <div class="col-md-6 mb-4 prato" data-categoria="pizza">
         <div class="border rounded p-3 h-100 d-flex flex-column">
           <div class="d-flex justify-content-between align-items-start gap-3">
             <div>
@@ -95,7 +77,7 @@
         </div>
       </div>
 
-      <div class="col-md-6 mb-4">
+      <div class="col-md-6 mb-4 prato" data-categoria="entrada">
         <div class="border rounded p-3 h-100 d-flex flex-column">
           <div class="d-flex justify-content-between align-items-start gap-3">
             <div>
@@ -109,7 +91,7 @@
         </div>
       </div>
 
-      <div class="col-md-6 mb-4">
+      <div class="col-md-6 mb-4 prato" data-categoria="entrada">
         <div class="border rounded p-3 h-100 d-flex flex-column">
           <div class="d-flex justify-content-between align-items-start gap-3">
             <div>
@@ -123,7 +105,7 @@
         </div>
       </div>
 
-      <div class="col-md-6 mb-4">
+      <div class="col-md-6 mb-4 prato" data-categoria="bebida">
         <div class="border rounded p-3 h-100 d-flex flex-column">
           <div class="d-flex justify-content-between align-items-start gap-3">
             <div>
@@ -166,7 +148,12 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- O bundle do Bootstrap inclui o JavaScript necessário para os componentes interativos, como o navbar responsivo. -->
+  <!--
+    script.js — arquivo com o código JavaScript da aula.
+    Fica depois do Bootstrap e no final do body para garantir que
+    todo o HTML já está carregado quando o JS começar a rodar.
+  -->
+  <script src="public/script/script.js"></script>
 </body>
 
 </html>
