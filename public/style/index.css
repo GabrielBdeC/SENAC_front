@@ -5,10 +5,6 @@ body {
   margin: 0;
 }
 
-/*
-  O .container do Bootstrap centraliza o conteúdo e define largura máxima.
-  As regras manuais de max-width e margin auto não são mais necessárias no CSS manual.
-*/
 h1 {
   color: #8B3A3A;
 }
@@ -24,10 +20,6 @@ nav {
   padding-bottom: 16px;
 }
 
-/*
-  Sobrescrevemos as cores padrão do Bootstrap navbar para a identidade visual da cantina.
-  data-bs-theme="dark" no HTML já configura os ícones, mas o texto precisa de ajuste manual.
-*/
 .navbar-brand,
 .nav-link {
   color: #FFF8E7 !important;
